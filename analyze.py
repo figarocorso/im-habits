@@ -14,8 +14,7 @@ if __name__ == "__main__":
     data = WhatsappParser(fname)
 
     user_stats = {'global': Stats()}
-    for i in xrange(data.length):
-        line = data.lines[i]
+    for line in data.lines:
         user = line['user']
         if user not in user_stats:
             user_stats[user] = Stats()

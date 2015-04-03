@@ -2,7 +2,6 @@ import datetime
 
 
 class Stats:
-
     def __init__(self):
         self.number_of_lines = 0
         self.number_of_words = 0
