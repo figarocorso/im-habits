@@ -7,7 +7,10 @@ class Stats:
         self.number_of_lines = 0
         self.number_of_words = 0
         self.number_of_chains = 0
+
         self.forever_alone = 0
+        self.last_word = 0
+
         self.conversations = 0
         self.phrases = {}
         self.dictionary = {}
@@ -46,6 +49,9 @@ class Stats:
 
     def add_conversation(self):
         self.conversations += 1
+
+    def add_last_word(self):
+        self.last_word += 1
 
     def _add_words(self, words):
         for word in words:
