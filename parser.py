@@ -3,7 +3,7 @@ import re
 
 
 class Parser(object):
-    CONVERSATION_TIMEOUT = 600  # seconds
+    CONVERSATION_TIMEOUT = 3600  # seconds
 
     def __init__(self):
         self.lines = []

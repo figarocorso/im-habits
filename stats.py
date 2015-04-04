@@ -2,13 +2,17 @@ import datetime
 
 
 class Stats:
-    def __init__(self):
+    def __init__(self, user):
+        self.user = user
         self.number_of_lines = 0
         self.number_of_words = 0
         self.number_of_chains = 0
+        self.forever_alone = 0
+        self.conversations = 0
         self.phrases = {}
         self.dictionary = {}
         self.weekday = {}
+        self.friendship = {}
 
     def __str__(self):
         # TODO: Implement?
@@ -23,6 +27,25 @@ class Stats:
         self._add_words(line['words'])
         self._add_phrase(int(line['year']), int(line['month']),
                          int(line['day']), int(line['hour']), line['phrase'])
+
+    def add_conversation_users(self, users):
+        self.conversations += 1
+
+        if len(users) == 1:
+            self.forever_alone += 1
+            return
+
+        for user in users:
+            self._add_friendship(user)
+
+    def _add_friendship(self, user):
+        try:
+            self.friendship[user] += 1
+        except KeyError:
+            self.friendship[user] = 1
+
+    def add_conversation(self):
+        self.conversations += 1
 
     def _add_words(self, words):
         for word in words:
