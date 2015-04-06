@@ -32,3 +32,6 @@ if __name__ == "__main__":
             user_stats[user].add_conversation_users(users_involved)
 
         user_stats['global'].add_conversation()
+
+        last_word_user = conversation[-1]['user']
+        user_stats[last_word_user].add_last_word()
